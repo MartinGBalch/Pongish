@@ -13,8 +13,8 @@ struct vec2
 
 struct Paddle
 {
-	float xPos = 500;
-	float yPos = 200;
+	float xPos = 400;
+	float yPos = 100;
 	float shoot = 0;
 };
 
@@ -44,7 +44,8 @@ void drawPaddle(float xPos, float yPos)
 
 void main()
 {
-	float xPos = 300, yPos = 200;
+	Paddle player;
+	float xPos, yPos;
 	sfw::initContext(800, 600, "NSFW Draw");
 	setBackgroundColor(BLACK);
 	
@@ -60,7 +61,15 @@ void main()
 
 	while (sfw::stepContext())
 	{
-		drawPaddle(xPos, yPos);
+		if (getKey('A'))
+		{
+			player.xPos -= 8;
+		}
+		else if (getKey('D'))
+		{
+			player.xPos += 8;
+		}
+		drawPaddle(player.xPos,player.yPos);
 		sfw::drawString(f, " !\"#$%&'()*+,./-\n0123456789:;<=>?\n@ABCDEFGHIJKLMNO\nPQRSTUVWXYZ[\\]^_\n`abcdefghijklmno\npqrstuvwxyz{|}~", 0, 600, 48, 48, 0, ' ');
 		sfw::drawTexture(r, 0, 600, 800, 600, 0, false, 0, 0x88888888);
 
@@ -77,6 +86,8 @@ void main()
 		if (sfw::getMouseButton(MOUSE_BUTTON_RIGHT))
 			sfw::drawTexture(u, sfw::getMouseX(), sfw::getMouseY(), sfw::getTextureWidth(u) / 2.5, sfw::getTextureHeight(u) / 2.5, 45, true, 0, 0x88ffffff);
 		else sfw::drawTexture(u, sfw::getMouseX(), sfw::getMouseY(), sfw::getTextureWidth(u) / 2, sfw::getTextureHeight(u) / 2);
+
+		
 	}
 
 	sfw::termContext();
