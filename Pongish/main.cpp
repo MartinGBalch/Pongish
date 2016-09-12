@@ -5,9 +5,9 @@
 
 using namespace sfw;
 
-void randomDirection()
+int randomDirection(int min, int max)
 {
-	float direction = ((rand() % 6) + 1);
+	return rand() % (max - min) + min;
 }
 
 struct vec2
@@ -25,10 +25,12 @@ struct Paddle
 
 struct Ball
 {
-	float xPos = 300;
-	float yPos = 100;
-	float size = 30;
-	float color = WHITE;
+	float x = 400;
+	float y = 300;
+	float size = 10;
+	float xvel = 0;
+	float yvel = 0;
+	unsigned color = WHITE;
 	
 	vec2 direction;
 };
@@ -42,21 +44,30 @@ struct Bounds
 
 void drawPaddle(float xPos, float yPos)
 {
-	drawLine(xPos - 50, yPos, xPos + 50, yPos, YELLOW);
+	drawLine(xPos - 50, yPos, xPos + 50, yPos, RED);
 	drawLine(xPos - 50, yPos - 30, xPos + 50, yPos - 30, GREEN);
 	drawLine(xPos - 50, yPos, xPos - 50, yPos - 30, GREEN);
 	drawLine(xPos + 50, yPos, xPos + 50, yPos - 30, GREEN);
 }
 
-Ball createball(float xpos, float ypos, float radius, unsigned int color, float xvel, float yvel)
+Ball createball(float x, float y, float radius, unsigned int color, float xvel, float yvel)
 {
 	Ball retval;
-	retval.xPos = xpos;
-	retval.yPos = ypos;
+	retval.x = x;
+	retval.y = y;
 	retval.size = radius;
 	retval.color = color;
+	retval.xvel = randomDirection(150, 340);
+	retval.yvel = randomDirection(150, 340);
+
+
 
 	return retval;
+}
+
+void drawballs(const Ball &b)
+{
+	sfw::drawCircle(b.x, b.y, b.size, 12 , b.color);
 }
 
 
@@ -65,7 +76,9 @@ Ball createball(float xpos, float ypos, float radius, unsigned int color, float 
 void main()
 {
 	Paddle player;
+	Ball b1;
 	float xPos, yPos;
+	float x, y;
 	sfw::initContext(800, 600, "NSFW Draw");
 	setBackgroundColor(BLACK);
 	
@@ -95,7 +108,7 @@ void main()
 			player.xPos = 800;
 		}
 		drawPaddle(player.xPos,player.yPos);
-		
+		drawballs(b1);
 
 		acc += sfw::getDeltaTime();
 		
