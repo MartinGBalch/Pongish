@@ -5,10 +5,10 @@
 
 using namespace sfw;
 
-//void randomDirection()
-//{
-//	direction = ((rand() % 6) + 1);
-//}
+void randomDirection()
+{
+	float direction = ((rand() % 6) + 1);
+}
 
 struct vec2
 {
@@ -28,6 +28,7 @@ struct Ball
 	float xPos = 300;
 	float yPos = 100;
 	float size = 30;
+	float color = WHITE;
 	
 	vec2 direction;
 };
@@ -47,16 +48,16 @@ void drawPaddle(float xPos, float yPos)
 	drawLine(xPos + 50, yPos, xPos + 50, yPos - 30, GREEN);
 }
 
-//Ball createball(float xpos, float ypos, float radius, unsigned int color, float xvel, float yvel)
-//{
-//	Ball retval;
-//	retval.xPos = xpos;
-//	retval.yPos = ypos;
-//	retval.size = radius;
-//
-//
-//	
-//}
+Ball createball(float xpos, float ypos, float radius, unsigned int color, float xvel, float yvel)
+{
+	Ball retval;
+	retval.xPos = xpos;
+	retval.yPos = ypos;
+	retval.size = radius;
+	retval.color = color;
+
+	return retval;
+}
 
 
 
