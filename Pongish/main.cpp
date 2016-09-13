@@ -3,6 +3,13 @@
 #include <cstdlib>
 #include "sfwdraw.h"
 
+//1) make balls move
+//2) make collision
+//3) make player health
+//4) make enemy health
+//5) add timers
+//6) add start
+
 using namespace sfw;
 
 int randomDirection(int min, int max)
