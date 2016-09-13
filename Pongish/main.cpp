@@ -18,14 +18,14 @@ struct vec2
 
 struct Paddle
 {
-	float xPos = 400;
-	float yPos = 100;
+	float xPos = 50;
+	float yPos = 300;
 	float shoot = 0;
 };
 
 struct Ball
 {
-	float x = 400;
+	float x = 775;
 	float y = 300;
 	float size = 10;
 	float xvel = 0;
@@ -37,17 +37,17 @@ struct Ball
 
 struct Bounds
 {
-	float leftwall;
-	float rightwall;
-	float topwall;
+	float topWall;
+	float bottomWall;
+	
 };
 
 void drawPaddle(float xPos, float yPos)
 {
-	drawLine(xPos - 50, yPos, xPos + 50, yPos, RED);
-	drawLine(xPos - 50, yPos - 30, xPos + 50, yPos - 30, GREEN);
-	drawLine(xPos - 50, yPos, xPos - 50, yPos - 30, GREEN);
-	drawLine(xPos + 50, yPos, xPos + 50, yPos - 30, GREEN);
+	drawLine(xPos, yPos - 50, xPos, yPos + 50, RED);
+	drawLine(xPos - 30, yPos - 50, xPos - 30, yPos + 50, GREEN);
+	drawLine(xPos, yPos - 50, xPos - 30, yPos - 50, GREEN);
+	drawLine(xPos, yPos + 50, xPos - 30, yPos + 50, GREEN);
 }
 
 Ball createball(float x, float y, float radius, unsigned int color, float xvel, float yvel)
@@ -59,15 +59,19 @@ Ball createball(float x, float y, float radius, unsigned int color, float xvel, 
 	retval.color = color;
 	retval.xvel = randomDirection(150, 340);
 	retval.yvel = randomDirection(150, 340);
-
-
-
+	
 	return retval;
 }
 
 void drawballs(const Ball &b)
 {
 	sfw::drawCircle(b.x, b.y, b.size, 12 , b.color);
+}
+
+int
+ updateBalls()
+{
+	return 0;
 }
 
 
@@ -90,22 +94,22 @@ void main()
 
 	while (sfw::stepContext())
 	{
-		if (getKey('A'))
+		if (getKey('W'))
 		{
-			player.xPos -= 8;
+			player.yPos += 10;
 		}
-		else if (getKey('D'))
+		else if (getKey('S'))
 		{
-			player.xPos += 8;
+			player.yPos -= 10;
 		}
 		
-		if(player.xPos >= 800)
+		if(player.yPos >= 550)
 		{
-			player.xPos = 0;
+			player.yPos = 550;
 		}
-		else if (player.xPos <= 0)
+		else if (player.yPos <= 54)
 		{
-			player.xPos = 800;
+			player.yPos = 53;
 		}
 		drawPaddle(player.xPos,player.yPos);
 		drawballs(b1);
