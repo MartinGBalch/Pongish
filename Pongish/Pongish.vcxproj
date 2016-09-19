@@ -114,10 +114,24 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Balls.cpp" />
+    <ClCompile Include="Exit.cpp" />
+    <ClCompile Include="GameState.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Option.cpp" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Splash.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Balls.h" />
+    <ClInclude Include="Exit.h" />
+    <ClInclude Include="gameManager.h" />
+    <ClInclude Include="GameState.h" />
+    <ClInclude Include="Option.h" />
+    <ClInclude Include="Player.h" />
+    <ClInclude Include="Score.h" />
     <ClInclude Include="sfwdraw.h" />
+    <ClInclude Include="Splash.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
