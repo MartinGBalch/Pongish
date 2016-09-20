@@ -39,10 +39,10 @@ void updateBalls(Ball &ball)
 	{
 		ball.xvel *= -1;
 	}
-	if (ball.x < 15)
+	/*if (ball.x < 15)
 	{
 		ball.xvel *= -1;
-	}
+	}*/
 
 	// Exponential
 	// Increases compound over time.

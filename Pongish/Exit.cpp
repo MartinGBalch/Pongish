@@ -9,15 +9,15 @@ void Exit::init(int a_font)
 
 void Exit::play()
 {
-	timer = 3.f;
+	timer = 15.f;
 }
 
 void Exit::draw()
 {
 	char buffer[80];
-	sprintf_s(buffer, "Press [ESC] of wait for the Kill timer: %f", timer);
-	sfw::drawString(font, buffer, 100, 100, 16, 16);
-	sfw::drawLine(100, 80, 100 + 500 * (timer / 3.f), 80);
+	sprintf_s(buffer, "Press [ESC] or wait for the Kill timer:\n %f", timer);
+	sfw::drawString(font, buffer, 0, 300, 20, 20 );
+	sfw::drawLine(100, 160, 100 + 500 * (timer / 15.f), 160);
 }
 
 void Exit::step()

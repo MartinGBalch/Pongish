@@ -32,10 +32,10 @@ APP_STATE Option::next()
 	if (sfw::getKey('P')) return ENTER_PLAY;
 	if (sfw::getKey('Q')) return ENTER_EXIT;
 
-	if (sfw::getKey(KEY_ENTER))
+	/*if (sfw::getKey(KEY_ENTER))
 	{
 		if (select == 0) return ENTER_EXIT;
 		if (select == 1) return ENTER_PLAY;
-	}
+	}*/
 	return OPTION;
 }

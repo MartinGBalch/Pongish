@@ -1,5 +1,6 @@
 #include "GameState.h"
 #include "sfwdraw.h"
+#include "Player.h"
  
 
 void GameState::init()
@@ -9,11 +10,11 @@ void GameState::init()
 }
 void GameState::update()
 {
-	if (sfw::getKey('W'))
+	if (sfw::getKey(KEY_UP))
 	{
 		player.yPos += 10;
 	}
-	else if (sfw::getKey('S'))
+	else if (sfw::getKey(KEY_DOWN))
 	{
 		player.yPos -= 10;
 	}
@@ -59,6 +60,8 @@ void GameState::update()
 		player.score++;
 	}
 
+	
+
 
 	updateBalls(b1);
 }
@@ -69,7 +72,23 @@ void GameState::draw()
 	drawballs(b1);
 }
 
+void GameState::play()
+{
+
+}
+
 APP_STATE GameState::next()
 {
-	return OPTION;
+	if (b1.x <= 0)
+	{
+		//player.score = 0;
+		b1.x = 775;
+		b1.y = 300;
+		player.color = GREEN;
+		return ENTER_WIN;
+	}
+
+	return PLAY;
 }
+
+

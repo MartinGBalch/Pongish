@@ -13,6 +13,7 @@
 #include "GameState.h"
 #include <cmath>
 #include "gameManager.h"
+#include "WinState.h"
 
 // ** TO DO LIST **
 //3) make classes
@@ -44,16 +45,19 @@ void main()
 {
 	sfw::initContext(800, 600, "NSFW Draw");
 	unsigned font = sfw::loadTextureMap("./res/fontmap.png", 16, 16);
+	Paddle winnerPlayer;
 	setBackgroundColor(BLACK);
 	
 	Splash splash;
 	Exit exit;
 	Option option;
+	WinState win;
 	GameState gamestate;
 
 	splash.init(font);
 	exit.init(font);
 	option.init(font);
+	win.init(font, winnerPlayer);
 	gamestate.init();
 
 	APP_STATE state = ENTER_SPLASH;
@@ -69,6 +73,7 @@ void main()
 			gamestate.update();
 			gamestate.draw();
 			state = gamestate.next();
+			break;
 
 		case ENTER_OPTION:
 			option.play();
@@ -92,6 +97,14 @@ void main()
 			exit.step();
 			exit.draw();
 			state = exit.next();
+			break;
+			
+		case ENTER_WIN:
+			win.play();
+		case WIN:
+			win.step();
+			win.draw();
+			state = win.next();
 			break;
 
 		case TERMINATE: quit = true;

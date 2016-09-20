@@ -13,6 +13,7 @@ public:
 	void init();	// set up the game (load textures, sounds, etc.)
 	void update();	// game logic (input, collision, movement)
 	void draw();	// render the game (call all the draws!)
+	void play();
 
 	APP_STATE next();
 };
