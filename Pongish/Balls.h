@@ -24,6 +24,8 @@ struct Ball
 	int bounceCount = 0;
 
 	vec2 direction;
+
+	
 };
 
 Ball createball(float x, float y, float radius, unsigned int color, float xvel, float yvel);

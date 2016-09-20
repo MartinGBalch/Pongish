@@ -111,7 +111,7 @@ void GameState::update()
 
 void GameState::draw()
 {
-	drawPaddle(player.xPos, player.yPos, player.color);
+	player.draw();
 	drawballs(b1);
 	
 }

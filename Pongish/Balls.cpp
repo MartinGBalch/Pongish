@@ -80,3 +80,8 @@ void updateBalls(Ball &ball)
 		ball.bounceCount = 1;
 	}
 }
+
+void Ball::draw()
+{
+
+}
