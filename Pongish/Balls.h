@@ -14,7 +14,7 @@ int randomDirection(int min, int max);
 
 struct Ball
 {
-	float x = 775;
+	float x = 300;
 	float y = 300;
 	float size = 10;
 	float xvel = 0;

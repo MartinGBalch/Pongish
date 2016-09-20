@@ -15,5 +15,7 @@ public:
 	void draw();	// render the game (call all the draws!)
 	void play();
 
+	int getScore();
+
 	APP_STATE next();
 };

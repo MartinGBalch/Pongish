@@ -6,10 +6,10 @@ class WinState
 {
 	int font;
 	float timer;
-	Paddle winnerPlayer;
+	int score;
 
 public:
-	void init(int a_font, Paddle winner);
+	void init(int a_font, int a_score);
 	void play();
 	void draw();
 	void step();

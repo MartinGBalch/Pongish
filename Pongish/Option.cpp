@@ -15,11 +15,12 @@ void Option::play()
 
 void Option::draw()
 {
-	sfw::drawString(font, "Press on your selection:", 80, 140, 16, 16, 0, 0, BLUE);
+	
+	sfw::drawString(font, "Press on your selection:", 250, 400, 32, 32, 0, 0, GREEN);
 
-	sfw::drawString(font, "[P]lay!", 100, 120, 16, 16, 0, 0, select == 1 ? MAGENTA : WHITE);
-	sfw::drawString(font, "[Q]uit!", 100, 100, 16, 16, 0, 0, select == 0 ? MAGENTA : WHITE);
-
+	sfw::drawString(font, "[P]lay", 380, 300, 28, 28, 0, 0, GREEN);
+	sfw::drawString(font, "[Q]uit", 620, 300, 28, 28, 0, 0, GREEN);
+	
 	
 }
 

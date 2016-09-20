@@ -43,10 +43,10 @@ void drawWin2(unsigned font)
 
 void main()
 {
-	sfw::initContext(800, 600, "NSFW Draw");
+	sfw::initContext(1200, 600, "LETS PLAY SOME CALMING WALL BALL");
 	unsigned font = sfw::loadTextureMap("./res/fontmap.png", 16, 16);
-	Paddle winnerPlayer;
-	setBackgroundColor(BLACK);
+	//unsigned r = sfw::loadTextureMap("./res/scroll.png");
+	setBackgroundColor(NONE);
 	
 	Splash splash;
 	Exit exit;
@@ -57,7 +57,7 @@ void main()
 	splash.init(font);
 	exit.init(font);
 	option.init(font);
-	win.init(font, winnerPlayer);
+	
 	gamestate.init();
 
 	APP_STATE state = ENTER_SPLASH;
@@ -65,6 +65,7 @@ void main()
 	bool quit = false;
 	while (sfw::stepContext() && !quit)
 	{
+		//sfw::drawTexture(r, 0, 600, 800, 600, 0, false, 0, 0x88888888);
 		switch(state)
 		{
 		case ENTER_PLAY:
@@ -101,6 +102,7 @@ void main()
 			
 		case ENTER_WIN:
 			win.play();
+			win.init(font, gamestate.getScore());
 		case WIN:
 			win.step();
 			win.draw();
