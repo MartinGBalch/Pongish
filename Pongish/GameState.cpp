@@ -15,11 +15,11 @@ void GameState::update()
 {
 	if (sfw::getKey(KEY_UP))
 	{
-		player.yPos += 14;
+		player.yPos += 20;
 	}
 	else if (sfw::getKey(KEY_DOWN))
 	{
-		player.yPos -= 14;
+		player.yPos -= 20;
 	}
 	else if (sfw::getKey('W'))
 	{

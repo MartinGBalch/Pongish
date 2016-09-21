@@ -71,17 +71,17 @@ void updateBalls(Ball &ball)
 	// 2 * 100 = 200
 	// copysignf(200, ball.xvel) = 200
 	// 200 * 2 = 400
-	ball.xvel = copysignf((ball.bounceCount + 1) * 100, ball.xvel) * 2;	
+	ball.xvel = copysignf((ball.bounceCount + 1) * 75, ball.xvel) * 2;	
 
 	// clamp the velocity to 1000.
-	if (fabsf(ball.xvel) > 1000)
+	if (fabsf(ball.xvel) > 1500)
 	{
-		ball.xvel = copysignf(1000, ball.xvel);
+		ball.xvel = copysignf(1500, ball.xvel);
 		ball.bounceCount = 1;
 	}
 }
 
-void Ball::draw()
-{
 
-}
+
+
+

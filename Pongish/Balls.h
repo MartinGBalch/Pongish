@@ -17,8 +17,8 @@ struct Ball
 	float x = 300;
 	float y = 300;
 	float size = 10;
-	float xvel = 0;
-	float yvel = 0;
+	float xvel;
+	float yvel;
 	unsigned color = YELLOW;
 
 	int bounceCount = 0;
